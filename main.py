@@ -3,8 +3,9 @@ import os
 import shutil
 import time
 import traceback
+import json
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response
 import pandas as pd
 from sklearn.externals import joblib
 
@@ -32,7 +33,12 @@ def predict():
             datavk = pd.DataFrame(json_)
 
             answer123 = datavk[0][0] % 3
-            return jsonify(answer123)
+            #неужно для нормального общения
+            json_encode = json.JSONEncoder().encode
+            resp = Response(json_encode(answer123),
+                    mimetype=("application/json"))
+            resp.headers['Access-Control-Allow-Origin'] = '*'
+            return resp
 
         except Exception as e:
 
