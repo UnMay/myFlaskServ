@@ -27,8 +27,8 @@ model_columns = None
 clf = None
 
 
-@app.route('/predict', methods=['POST'])
-def predict():
+@app.route('/', methods=['POST'])
+def index():
     if clf:
         try:
             json_ = request.json
