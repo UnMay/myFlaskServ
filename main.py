@@ -5,6 +5,8 @@ import time
 import traceback
 import json
 
+from werkzeug.contrib.fixers import ProxyFix
+
 from flask import Flask, request, jsonify, Response
 import pandas as pd
 from sklearn.externals import joblib
@@ -105,6 +107,7 @@ def wipe():
         return 'Could not remove and recreate the model directory'
 '''
 
+app.wsgi_app = ProxyFix(app.wsgi_app
 if __name__ == '__main__':
     try:
         port = int(sys.argv[1])
