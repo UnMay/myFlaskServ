@@ -5,8 +5,6 @@ import time
 import traceback
 import json
 
-from werkzeug.contrib.fixers import ProxyFix
-
 from flask import Flask, request, jsonify, Response
 import pandas as pd
 from sklearn.externals import joblib
@@ -27,8 +25,8 @@ model_columns = None
 clf = None
 
 
-@app.route('/', methods=['POST'])
-def index():
+@app.route('/predict', methods=['POST'])
+def predict():
     if clf:
         try:
             json_ = request.json
@@ -106,7 +104,6 @@ def wipe():
         print(str(e))
         return 'Could not remove and recreate the model directory'
 '''
-wsgi_app = ProxyFix(app.wsgi_app)
 
 if __name__ == '__main__':
     try:
