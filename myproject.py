@@ -6,8 +6,11 @@ import os
 import shutil
 import time
 import traceback
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
+cros = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/")
 def hello():
@@ -20,12 +23,7 @@ def predict():
             datavk = pd.DataFrame(json_)
 
             answer123 = datavk[0][0] % 3
-            json_encode = json.JSONEncoder().encode
-            resp = Response(json_encode(answer123),
-                    mimetype=("application/json"))
-            resp.headers['Access-Control-Allow-Origin'] = '*'
-            resp.headers['Access-Control-Allow-Headers'] = "Origin, X-Requested-With, Content-Type, Accept"
-            return resp
+            return jsonify(answer123)            
 
         except Exception as e:
             return jsonify({'error': str(e), 'trace': traceback.format_exc()})
