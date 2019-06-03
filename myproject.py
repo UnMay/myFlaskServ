@@ -24,6 +24,7 @@ def predict():
             resp = Response(json_encode(answer123),
                     mimetype=("application/json"))
             resp.headers['Access-Control-Allow-Origin'] = '*'
+            resp.headers['Access-Control-Allow-Headers'] = "Origin, X-Requested-With, Content-Type, Accept"
             return resp
 
         except Exception as e:
