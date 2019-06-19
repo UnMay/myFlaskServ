@@ -67,7 +67,7 @@ def predict():
                 output=2
             return jsonify(output)            
             '''
-            return jsonify(datavk) 
+            return jsonify(datavk[0][0], datavk[0][1]) 
         except Exception as e:
             return jsonify({'error': str(e), 'trace': traceback.format_exc()})
 
