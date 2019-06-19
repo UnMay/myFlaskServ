@@ -31,7 +31,7 @@ def user_predict(datavk):
     for subscription in subscriptions:
             try:
                 user_id = datavk[0][0]
-                name = None
+                name = datavk[2]
                 group_id=datavk[1]
                 me = me.append({'user_id': user_id, 'name': name, 'group_id':group_id}, ignore_index=True)
             except:
