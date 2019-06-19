@@ -57,7 +57,7 @@ def predict():
         try:
             json_ = request.json
             datavk = pd.DataFrame(json_)
-            
+            '''
             result = user_predict(datavk)[0]
             if result=='INFO':
                 output=0
@@ -66,7 +66,8 @@ def predict():
             elif result=='GSEM':
                 output=2
             return jsonify(output)            
-
+'''
+            return jsonify(type(datavk[1])) 
         except Exception as e:
             return jsonify({'error': str(e), 'trace': traceback.format_exc()})
 
