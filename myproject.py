@@ -52,7 +52,7 @@ def hello():
     return "<h1 style='color:red'>server ok!</h1>"
 
 #веб-часть
-@app.route('/predict')
+@app.route("/predict", methods=['POST'])
 def predict():
         try:
             json_ = request.json
