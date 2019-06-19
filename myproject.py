@@ -28,11 +28,11 @@ pca = pickle.load(open(pca_filename, 'rb'))
 #предсказание и получение данных из ВК
 def user_predict(datavk):
     me=pd.DataFrame()
-    for subscription in subscriptions:
+    for s_id in datavk[1]:
             try:
                 user_id = datavk[0][0]
-                name = datavk[2]
-                group_id=datavk[1]
+                name = None
+                group_id=s_id
                 me = me.append({'user_id': user_id, 'name': name, 'group_id':group_id}, ignore_index=True)
             except:
                 pass
