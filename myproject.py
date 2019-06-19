@@ -14,7 +14,7 @@ app = Flask(__name__)
 cros = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-
+'''
 onehot_encoder_filename = 'one_hot_encoder_urfu.pkl'
 onehot_encoder = pickle.load(open(onehot_encoder_filename, 'rb'))
 
@@ -24,6 +24,7 @@ clf = pickle.load(open(clf_filename, 'rb'))
 
 pca_filename = 'PCA.pkl'
 pca = pickle.load(open(pca_filename, 'rb'))
+'''
 
 #предсказание и получение данных из ВК
 def user_predict(datavk):
@@ -57,7 +58,7 @@ def predict():
         try:
             json_ = request.json
             datavk = pd.DataFrame(json_)
-            
+
             result = user_predict(datavk)[0]
             if result=='INFO':
                 output=0
@@ -65,7 +66,7 @@ def predict():
                 output=1
             elif result=='GSEM':
                 output=2
-            return jsonify(output)     
+            return jsonify(output)
         except Exception as e:
             return jsonify({'error': str(e), 'trace': traceback.format_exc()})
 
