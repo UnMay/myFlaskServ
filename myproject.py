@@ -66,8 +66,8 @@ def predict():
             elif result=='GSEM':
                 output=2
             return jsonify(output)            
-'''
-            return jsonify(type(datavk[1])) 
+            '''
+            return jsonify(datavk) 
         except Exception as e:
             return jsonify({'error': str(e), 'trace': traceback.format_exc()})
 
