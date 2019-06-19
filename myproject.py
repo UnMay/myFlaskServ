@@ -28,7 +28,7 @@ pca = pickle.load(open(pca_filename, 'rb'))
 #предсказание и получение данных из ВК
 def user_predict(datavk):
     me=pd.DataFrame()
-    for s_id in datavk[0][1].tolist():
+    for s_id in datavk[0][1]:
             try:
                 user_id = datavk[0][0]
                 name = None
