@@ -15,17 +15,14 @@ cros = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 onehot_encoder_filename = 'one_hot_encoder_urfu.pkl'
-with open(onehot_encoder_filename, 'rb') as f
-onehot_encoder = pickle.load(f)
+onehot_encoder = pickle.load ( open (onehot_encoder_filename, ' rb ' ))
 
 # загрузка pickle-файлов
 clf_filename = 'classifier_LR.pkl'
-with open(clf_filename, 'rb') as f
-clf = pickle.load(f)
+clf = pickle.load ( open (clf_filename, ' rb ' ))
 
 pca_filename = 'PCA.pkl'
-with open(pca_filename, 'rb') as f
-pca = pickle.load(f)
+pca = pickle.load ( open (pca_filename, ' rb ' ))
 
 #предсказание и получение данных из ВК
 def user_predict(datavk):
