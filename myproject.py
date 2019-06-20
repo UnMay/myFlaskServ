@@ -52,6 +52,7 @@ def hello():
 
 #веб-часть
 @app.route("/predict", methods=['POST'])
+@cross_origin()
 def predict():
         try:
             json_ = request.json
