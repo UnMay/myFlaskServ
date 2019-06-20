@@ -57,6 +57,8 @@ def predict():
         try:
             json_ = request.json
             datavk = pd.DataFrame(json_)
+            answer123 = datavk[0][0] % 3
+            return jsonify(answer123)
 
             result = user_predict(datavk)[0]
             if result=='INFO':
