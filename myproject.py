@@ -14,7 +14,6 @@ app = Flask(__name__)
 cros = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-'''
 onehot_encoder_filename = 'one_hot_encoder_urfu.pkl'
 onehot_encoder = pickle.load(open(onehot_encoder_filename, 'rb'))
 
@@ -24,7 +23,6 @@ clf = pickle.load(open(clf_filename, 'rb'))
 
 pca_filename = 'PCA.pkl'
 pca = pickle.load(open(pca_filename, 'rb'))
-'''
 
 #предсказание и получение данных из ВК
 def user_predict(datavk):
